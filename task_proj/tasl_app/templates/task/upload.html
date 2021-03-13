@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>hello</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <div>
+<!--                | means OR operator-->
+                <strong>{{message|safe}}</strong>
+            </div>
+        {% endfor %}
+    {% else %}
+    {{order}}
+    <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">Welcome</a>
+  <a class="nav-item" style="text-decoration: none; color: black" href="/data/" >Click Here to View Uploaded Data</a>
+  <!--<form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+-->
+    <a href="/userlogout/" class="btn btn-danger">Logout</a>
+</nav>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="file1"> Upload a file</label>
+        <input type="file" id="file1" name="file">
+        <small>Only accepts json files</small>
+        <button type="submit">Upload</button>
+    </form>
+    {% endif %}
+    <br>
+    <a href="/data/" class="btn btn-success">Click Here to View Uploaded Data</a>
+</body>
+</html>

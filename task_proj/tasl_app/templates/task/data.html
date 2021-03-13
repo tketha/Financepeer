@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="text-align: center">My data</h1>
+
+{% for data in datas %}
+<div style="margin: 40px" class="alert alert-warning" role="alert">
+    <p><b>User Id: </b> {{data.userId}}</p>
+    <p><b>id: </b> {{data.id}}</p>
+    <p><b>tile: </b> {{data.title}}</p>
+    <p><b>body: </b>{{data.body}}<</p>
+</div>
+{% endfor %}
+{% endblock %}

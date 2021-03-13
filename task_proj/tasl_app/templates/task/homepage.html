@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1 style="text-align:center;color:orange">WELCOME</h1>
+    <a class="btn btn-danger" style="position: relative; left: 1200px; bottom: 50px " href="/loginuser/">Login</a>
+
+</nav>
+
+<div class="container" style="width: 400px; height: 300px; background-color:orange; margin-top: 150px; padding:30px">
+
+<!--<div class="container-fluid" style="bottom: 20px;position: relative; height: 560px; background-size: cover; background-image: url({%static "img/pizzahomepage1.jpg"%});">-->
+    <!--<div style="position: absolute;top: 50px; right: 20px; width: 500px; height: 350px; background-color: orange; padding: 40px" ;class="container">-->
+        <h1 style="text-align: center;color:white">Sign Up !</h1>
+        <form method="post" action="/signupuser/">
+            {% csrf_token %}
+            <input class="form-control" placeholder="Username" type="text" name="username" style="margin-bottom: 10px">
+            <input class="form-control" placeholder="Password" type="password" name="password" style="margin-bottom: 10px">
+            <input class="form-control" placeholder="PhoneNo" type="text" name="phoneno" style="margin-bottom: 10px">
+            <input style="display: block; margin: auto; margin-top: 20px" class="btn btn-success" type="submit" name="">
+            {% for message in messages %}
+                <p style="text-align: center; color: white">{{message}}</p>
+            {% endfor %}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
